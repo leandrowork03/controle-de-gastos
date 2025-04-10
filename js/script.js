@@ -101,10 +101,10 @@ function renderizar() {
     if (condicaoMes && condicaoCat) {
       const li = document.createElement("li");
       li.innerHTML = `
-        <span><b class="desc-dom">${t.descricao}</b>: R$ ${parseFloat(t.valor).toFixed(2)} | <b class="cat-dom">categoria:</b> ${t.categoria} | <b class="data-dom">data:</b> ${t.data}</span>
+        <span><b class="desc-dom">${t.desc}</b>: R$ ${parseFloat(t.valor).toFixed(2)} | <b class="cat-dom">categoria:</b> ${t.categoria} | <b class="data-dom">data:</b> ${t.data}</span>
         <div>
-          <button onclick="editar(${i})">✏️</button>
-          <button onclick="excluir(${i})" class="btn-delete">🗑️</button>
+          <button class="btn-editar" data-index="${i}">✏️</button>
+          <button class="btn-remover" data-index="${i}">🗑️</button>
         </div>
       `;
       lista.appendChild(li);
@@ -127,21 +127,29 @@ function renderizar() {
   graficoPizza.data.labels = Object.keys(dadosPizza);
   graficoPizza.data.datasets[0].data = Object.values(dadosPizza);
   graficoPizza.data.datasets[0].backgroundColor = Object.keys(dadosPizza).map(() =>
-    `#${Math.floor(Math.random()*16777215).toString(16)}`
+    `#${Math.floor(Math.random() * 16777215).toString(16)}`
   );
   graficoPizza.update();
 
   graficoLinha.data.labels = Object.keys(dadosLinha).sort();
   graficoLinha.data.datasets[0].data = Object.keys(dadosLinha).sort().map(m => dadosLinha[m]);
   graficoLinha.update();
-}
 
-filtroMes.addEventListener('change', renderizar);
-filtroCategoria.addEventListener('change', renderizar);
-document.addEventListener('DOMContentLoaded', () => {
-  atualizarFiltros();
-  renderizar();
-});
+  // Adiciona eventos aos botões
+  document.querySelectorAll('.btn-editar').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const i = btn.getAttribute('data-index');
+      editar(i);
+    });
+  });
+
+  document.querySelectorAll('.btn-remover').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const i = btn.getAttribute('data-index');
+      remover(i);
+    });
+  });
+}
 
 function editar(i) {
   const t = transacoes[i];
@@ -153,7 +161,7 @@ function editar(i) {
   editandoIndex = i;
   btnSalvar.textContent = 'Salvar';
   btnCancelar.style.display = 'inline';
-  btnCancelar.style.backgroundColor = 'red'
+  btnCancelar.style.backgroundColor = 'red';
 }
 
 function remover(i) {
@@ -212,5 +220,5 @@ btnExportarPdf.addEventListener('click', () => {
 filtroMes.addEventListener('change', renderizar);
 filtroCategoria.addEventListener('change', renderizar);
 
-renderizar();
 atualizarFiltros();
+renderizar();
