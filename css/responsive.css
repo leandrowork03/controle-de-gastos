@@ -1,0 +1,62 @@
+@media(max-width: 920px){
+    .titulo1, .titulo2, .titulo3{
+        display: none;
+    }
+    .titulo4 {
+        width: fit-content;
+        display: block;
+        position: relative; 
+        opacity: 1;         
+        transform: none;     
+        font-size: 22px;
+        color: white;
+        margin-top: 20px;
+        bottom: 10%;
+        left: 15%;
+}
+.li-edit{
+    display:flex;
+}
+}
+@media(max-width: 650px){
+    header {
+        background-image: none !important;
+        background-color: #00C774;
+        height: 60px;
+    }
+    #btn-salvar, #btn-cancelar{
+        width: 98%;
+        margin: 0;
+    }
+    .titulo4{
+        position: static;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+     .container{
+        padding: 0 20px;
+        margin: 0;
+     }
+     .btn-night{
+        padding: 5px;
+     }
+     .night{
+        padding: 0;
+        margin: 10px;
+     }
+     .filtros{
+        flex-direction: column;
+     }
+}
+
+@media(max-width: 500px){
+    .graficos-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+   
+}

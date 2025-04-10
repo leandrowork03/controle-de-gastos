@@ -102,7 +102,7 @@ function renderizar() {
       const li = document.createElement("li");
       li.innerHTML = `
         <span><b class="desc-dom">${t.desc}</b>: R$ ${parseFloat(t.valor).toFixed(2)} | <b class="cat-dom">categoria:</b> ${t.categoria} | <b class="data-dom">data:</b> ${t.data}</span>
-        <div>
+        <div class="li-edit">
           <button class="btn-editar" data-index="${i}">✏️</button>
           <button class="btn-remover" data-index="${i}">🗑️</button>
         </div>
@@ -135,7 +135,6 @@ function renderizar() {
   graficoLinha.data.datasets[0].data = Object.keys(dadosLinha).sort().map(m => dadosLinha[m]);
   graficoLinha.update();
 
-  // Adiciona eventos aos botões
   document.querySelectorAll('.btn-editar').forEach(btn => {
     btn.addEventListener('click', () => {
       const i = btn.getAttribute('data-index');

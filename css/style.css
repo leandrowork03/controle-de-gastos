@@ -102,6 +102,9 @@ header h1 {
   transform: translateX(-50%); 
   width: fit-content;
 }
+.titulo4{
+  display: none;
+}
 @keyframes clickAnim {
   0% { transform: scale(1); box-shadow: 4px 4px 0 black; }
   50% { transform: scale(0.9); box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2); }
@@ -182,6 +185,11 @@ form {
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  
+}
+.botoes{
+  display: flex;
+  width: 100%;
 }
 
 .filtros {
@@ -250,4 +258,14 @@ canvas {
   justify-content: space-around;
   gap: 20px;
   flex-wrap: wrap;
+}
+
+#btn-salvar{
+  width: 45%;
+  padding: 10px;
+}
+#btn-cancelar{
+  width: 45%;
+  padding: 10px;
+  margin-left: 5%;
 }

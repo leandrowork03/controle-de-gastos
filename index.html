@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistema de Controle de Gastos</title>
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/responsive.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -14,6 +15,7 @@
     <div>
       <h1 class="titulo3">💵 Controle de Gastos 🤑</h1>
     </div>
+    <h1 class="titulo4">💵 Controle de Gastos </h1>
   </header>
   <div class="container">
     <div class="night">
@@ -36,8 +38,10 @@
         <option value="outros">Outros</option>
       </select>
       <input type="date" id="data" required>
-      <button type="submit" id="btn-salvar">Adicionar</button>
-      <button type="button" id="btn-cancelar" style="display:none; background-color: #ccc;">Cancelar</button>
+      <div class="botoes">     
+        <button type="submit" id="btn-salvar">Adicionar</button>
+        <button type="button" id="btn-cancelar" style="display:none; background-color: #ccc;">Cancelar</button>
+      </div>
     </form>
     
     <div class="filtros">
@@ -73,6 +77,3 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </body>
 </html>
-
-
-
