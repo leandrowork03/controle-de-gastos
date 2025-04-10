@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  position: relative;
+  background-image: url(../assets/model.jpg);
+  width: 100%;
+  height: 300px;
+  background-position: 20% center;
+  background-repeat: no-repeat;
+  background-color: #00C774;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: 110%;
+  position: relative;
+  animation: zoomOutBackground 5s ease-in-out forwards;
+}
+
+@keyframes zoomOutBackground {
+  0% { background-size: 1000px; }
+  100% { background-size: 500px; }
+}
+
+header h1 {
+  color: white;
+  font-size: 25px;
+  position: absolute;
+  opacity: 0;
+  transform: translateY(50px);
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  position: absolute;
+}
+
+@keyframes subir {
+  0% {
+    transform: translate(100px, 100px);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(100px, -50px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100px, -100px);
+    opacity: 0;
+  }
+}
+
+@keyframes aparecerTitulo3 {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+.titulo1 {
+  animation: subir 5s ease-in-out forwards;
+  animation-delay: 0s; 
+  transform: translateY(50px); 
+}
+.titulo2 {
+  animation: subir 10s ease-in-out forwards;
+  animation-delay: 3s; 
+  transform: translateY(50px); 
+}
+
+.titulo3 {
+  animation: aparecerTitulo3 3s ease-in-out forwards;
+  animation-delay: 11s; 
+  transform: translateY(100px); 
+  position: absolute; 
+  top: 30%; 
+  left: 0%;  
+  transform: translateX(-50%); 
+}
+@keyframes clickAnim {
+  0% { transform: scale(1); box-shadow: 4px 4px 0 black; }
+  50% { transform: scale(0.9); box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2); }
+  100% { transform: scale(1); box-shadow: 4px 4px 0 black; }
+}
+
+.btn-click {
+  animation: clickAnim 0.2s ease-in-out;
+}
+
+button {
+  background-color: #00C374;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  box-shadow: 4px 4px 0 black;
+  transition: transform 0.1s ease, box-shadow 0.5s ease, background-color 0.3s;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.btn-delete { background-color: #ff3801; }
+
+#btn-cancelar { 
+  background-color: #ff3801; 
+  display: none; 
+}
+
+input, select {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 4px;
+  outline: none;
+  margin-right: 10px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #00C374;
+}
+
+.night {
+  margin: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-night {
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #333;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-night:hover {
+  background-color: #444;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filtros {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.resumo {
+  background-color: #ddd;
+  color: black;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+li {
+  background-color: #eee;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li span { margin-right: 0.5rem; }
+
+canvas {
+  margin: 2rem 0;
+  max-width: 100%;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #f4f4f4;
+}
+
+.dark-mode table {
+  color: black;
+}
+
+canvas {
+  flex: 1;
+  max-width: 200px;
+  max-height: 200px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.graficos-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+}

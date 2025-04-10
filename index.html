@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Controle de Gastos</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1 class="titulo1">Cuide da saúde financeira da sua família</h1>
+    <h1 class="titulo2">criando seus objetivos você sabe como realizar seus sonhos</h1>
+    <div>
+      <h1 class="titulo3">💵 Controle de Gastos 🤑</h1>
+    </div>
+  </header>
+  <div class="pdf" id="area-pdf">
+    <div class="container">
+      <div class="night">
+        <p></p>
+        <button class="btn-night" id="toggle-dark">🌙</button>
+      </div>
+
+      <form id="form">
+        <input type="text" id="desc" placeholder="Descrição" required>
+        <input type="number" id="valor" placeholder="Valor" required>
+        <select id="tipo">
+          <option value="receita">Receita</option>
+          <option value="despesa">Despesa</option>
+        </select>
+        <select id="categoria">
+          <option value="alimentacao">Alimentação</option>
+          <option value="transporte">Transporte</option>
+          <option value="moradia">Moradia</option>
+          <option value="salario">Salário</option>
+          <option value="outros">Outros</option>
+        </select>
+        <input type="date" id="data" required>
+        <button type="submit" id="btn-salvar">Adicionar</button>
+        <button type="button" id="btn-cancelar" style="display:none; background-color: #ccc;">Cancelar</button>
+      </form>
+
+      <div class="filtros">
+        <select id="filtro-mes"></select>
+        <select id="filtro-categoria">
+          <option value="todas">Todas Categorias</option>
+          <option value="alimentacao">Alimentação</option>
+          <option value="transporte">Transporte</option>
+          <option value="moradia">Moradia</option>
+          <option value="salario">Salário</option>
+          <option value="outros">Outros</option>
+        </select>
+        <button id="btn-exportar-pdf">Exportar PDF</button>
+      </div>
+
+      <div class="resumo">
+        <p style="color: green;">Receitas: R$ <span id="total-receitas">0</span></p>
+        <p style="color: red;">Despesas: R$ <span id="total-despesas">0</span></p>
+        <p style="color: blueviolet;">Saldo: R$ <span id="saldo">0</span></p>
+      </div>
+
+      <ul id="lista"></ul>
+
+      <div class="graficos-container">
+        <canvas id="grafico-pizza"></canvas>
+        <canvas id="grafico-linha"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/script.js" type="module"></script>
+</body>
+</html>
+
+
